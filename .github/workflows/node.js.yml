@@ -69,3 +69,12 @@ jobs:
        fail_if_critical_vulnerabilities_found: true
        fail_only_if_vulnerabilities_fixable: true
        save_build_report: true
+
+    -
+     name: 'Upload build artifact'
+     if: always()
+     uses: actions/upload-artifact@v2
+     with:
+       name: build-html-artifact
+       path: **/*.html
+       retention-days: 5
