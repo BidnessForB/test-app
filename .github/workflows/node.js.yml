@@ -53,9 +53,6 @@ jobs:
       with:
        repository: ipcrm/lw-scanner-action
        ref: refs/heads/main
-         # GitHub's personal access token with access to `my-organization/awesome-action`
-       token: $
-       persist-credentials: false
        path: ./.github/actions/lw-scanner--action
 
     - 
