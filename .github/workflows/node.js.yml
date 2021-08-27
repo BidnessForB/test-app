@@ -48,12 +48,12 @@ jobs:
 
 
     - 
-      name: Checkout my-organization/awesome-action
+      name: Checkout ipcrm/lw-scanner-action
       uses: actions/checkout@v2
       with:
        repository: ipcrm/lw-scanner-action
        ref: refs/heads/main
-       path: ./.github/actions/lw-scanner--action
+       path: ./.github/actions/lw-scanner-action
 
     - 
      uses: ./.github/actions/lw-scanner-action
