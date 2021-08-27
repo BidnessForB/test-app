@@ -43,13 +43,8 @@ jobs:
       username: ${{ secrets.DOCKER_USERNAME }}
       password: ${{ secrets.DOCKER_TOKEN }}
     -
-     name: Build and push
-     uses: docker/build-push-action@v2
-     with:
-      context: .
-      push: false
-      tags: ipcrm/matts-lackluster-app:latest
-
+     name: Build the Docker image
+     run: docker build . --file Dockerfile --tag matts-lackluster-app:latest
 
     - 
      name: Scan container images for vulnerabitilies using Lacework
