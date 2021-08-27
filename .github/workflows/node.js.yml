@@ -56,7 +56,7 @@ jobs:
        path: ./.github/actions/lw-scanner--action
 
     - 
-     uses: ipcrm/matts-lackluster-app/.github/actions/lw-scanner-action@main
+     uses: ./.github/actions/lw-scanner-action
      name: Scan container images for vulnerabitilies using Lacework
      #     uses: timarenz/lw-scanner-action@v0.2.1
      env:
