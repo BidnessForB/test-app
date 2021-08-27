@@ -49,4 +49,18 @@ jobs:
       context: .
       push: false
       tags: ipcrm/matts-lackluster-app:latest
-  
+
+
+    - 
+     name: Scan container images for vulnerabitilies using Lacework
+     uses: timarenz/lw-scanner-action:v0.0.1
+     env:
+       LW_ACCOUNT_NAME: ${{ secrets.LW_ACCOUNT_NAME }} 
+       LW_ACCESS_TOKEN: ${{ secrets.LW_ACCESS_TOKEN }}
+       LW_SCANNER_SCAN_LIBRARY_PACKAGES: true
+     with:
+       image_name: matts-lackluster-app
+       image_tag: latest
+       fail_if_critical_vulnerabilities_found: true
+       fail_only_if_vulnerabilities_fixable: true
+
