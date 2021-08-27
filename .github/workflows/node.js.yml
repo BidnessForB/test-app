@@ -76,5 +76,6 @@ jobs:
      uses: actions/upload-artifact@v2
      with:
        name: build-html-artifact
-       path: **/*.html
+       path: |
+         **/*.html
        retention-days: 5
