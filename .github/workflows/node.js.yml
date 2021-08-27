@@ -46,9 +46,22 @@ jobs:
      name: Build the Docker image
      run: docker build . --file Dockerfile --tag matts-lackluster-app:latest
 
+
     - 
+      name: Checkout my-organization/awesome-action
+      uses: actions/checkout@v2
+      with:
+       repository: ipcrm/lw-scanner-action
+       ref: refs/heads/main
+         # GitHub's personal access token with access to `my-organization/awesome-action`
+       token: $
+       persist-credentials: false
+       path: ./.github/actions/lw-scanner--action
+
+    - 
+     uses: ./.github/actions/lw-scanner-action
      name: Scan container images for vulnerabitilies using Lacework
-     uses: timarenz/lw-scanner-action@v0.2.1
+     #     uses: timarenz/lw-scanner-action@v0.2.1
      env:
        LW_ACCOUNT_NAME: ${{ secrets.LW_ACCOUNT_NAME }} 
        LW_ACCESS_TOKEN: ${{ secrets.LW_ACCESS_TOKEN }}
@@ -58,4 +71,4 @@ jobs:
        image_tag: latest
        fail_if_critical_vulnerabilities_found: true
        fail_only_if_vulnerabilities_fixable: true
-
+       save_build_report: true
