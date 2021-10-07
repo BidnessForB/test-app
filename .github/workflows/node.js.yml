@@ -47,9 +47,7 @@ jobs:
       with:
         image_name: matts-lackluster-app
         image_tag: latest
-        fail_if_critical_vulnerabilities_found: true
-        fail_only_if_vulnerabilities_fixable: true
-        save_build_report: true
+        save_html_report: true
 
     - name: Checkout bidnessforb/sarif-integration
       uses: actions/checkout@v2
