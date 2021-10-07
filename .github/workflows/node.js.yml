@@ -70,6 +70,15 @@ jobs:
           **/*.html
         retention-days: 5
 
+    - name: 'Upload sarif artifact'
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: upload-sarif-artifact
+        path: |
+          **/*.sarif.json
+        retention-days: 5
+
     - name: Upload SARIF file
       if: always()
       uses: github/codeql-action/upload-sarif@v1
