@@ -79,6 +79,11 @@ jobs:
           **/*.sarif.json
         retention-days: 5
 
+    - name: 'Tail test'
+      if: always()
+      run: |
+      tail '/home/runner/work/test-app/test-app/report.sarif.json'
+
     - name: Upload SARIF file
       if: always()
       uses: github/codeql-action/upload-sarif@v1
