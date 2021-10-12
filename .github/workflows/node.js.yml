@@ -82,10 +82,11 @@ jobs:
     - name: 'Tail test'
       if: always()
       run: |
-        find . -name 'report.sarif.json'
+        tail './report.sarif.json'
+
 
     - name: Upload SARIF file
       if: always()
       uses: github/codeql-action/upload-sarif@v1
       with:
-        sarif_file: '/home/runner/work/test-app/test-app/report.sarif.json'
+        sarif_file: './report.sarif.json'
