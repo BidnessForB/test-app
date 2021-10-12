@@ -82,7 +82,7 @@ jobs:
     - name: 'Tail test'
       if: always()
       run: |
-      tail '/home/runner/work/test-app/test-app/report.sarif.json'
+        tail '/home/runner/work/test-app/test-app/report.sarif.json'
 
     - name: Upload SARIF file
       if: always()
